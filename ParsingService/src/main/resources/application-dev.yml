@@ -1,0 +1,6 @@
+#logging:
+#  config: classpath:log4j2-dev.xml
+service-port: 8090
+SSL_ENABLE: false
+server:
+  port: 8090
