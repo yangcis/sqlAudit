@@ -1,7 +1,5 @@
 package org.yangcis.parsing.controller;
 
-import javax.validation.Valid;
-
 import org.apache.servicecomb.provider.rest.common.RestSchema;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,19 +10,20 @@ import org.yangcis.parsing.entity.ParseRequest;
 import org.yangcis.parsing.entity.ParseResponse;
 import org.yangcis.parsing.service.ParseSqlService;
 
+import javax.validation.Valid;
+import java.util.concurrent.CompletableFuture;
+
 @RestSchema(schemaId = "ParseController")
 @RequestMapping(value = "/rest/v1/parser")
 public class ParseController {
     
     @Autowired
     ParseSqlService parseSqlService;
-    
+
     @RequestMapping(method = RequestMethod.POST, value = "/sql")
-    public ResponseEntity<ParseResponse> parseSqlString(@RequestBody @Valid ParseRequest request) {
-        ParseResponse response = parseSqlService.parseSql(request);
-        if (response == null) {
-            return ResponseEntity.badRequest().build();
-        }
-        return ResponseEntity.ok(response);
+    public CompletableFuture<ResponseEntity<ParseResponse>> parseSqlString(@RequestBody @Valid ParseRequest request) {
+        CompletableFuture<ResponseEntity<ParseResponse>> future = new CompletableFuture<>();
+        parseSqlService.parseSql(request, future);
+        return future;
     }
 }
