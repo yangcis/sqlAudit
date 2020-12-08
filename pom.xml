@@ -12,6 +12,7 @@
     <modules>
         <module>ParsingService</module>
         <module>EdgeService</module>
+        <module>CheckingService</module>
     </modules>
 
     <properties>
