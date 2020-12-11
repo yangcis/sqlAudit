@@ -1,13 +1,13 @@
 package org.yangcis.parsing.entity;
 
 import com.alibaba.druid.stat.TableStat;
+import lombok.Data;
 
 import java.util.Collection;
-import lombok.Data;
 
 @Data
 public class ParseResponse {
     private Integer features;
-    private String sqlType;
+    private String dbType;
     private Collection<TableStat.Column> columnList;
 }

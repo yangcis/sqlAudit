@@ -30,7 +30,7 @@ public class ParseSqlServiceImpl implements ParseSqlService {
             return;
         }
         ParseResponse response = new ParseResponse();
-        response.setSqlType(dbType);
+        response.setDbType(dbType);
         //解析出的独立语句的个数
         System.out.println("size is:" + stmtList.size());
         for (SQLStatement stmt : stmtList) {
