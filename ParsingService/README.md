@@ -21,11 +21,11 @@ ParseRequest
 
 Response
 
-| 参数名称     | 参数类型        | 是否必选 | 参数说明    |
-|:------------|:--------------|:-------|:-----------|
-| resultCode  | String(1-16)  | Y      | 返回结果码   |
-| resultDesc  | String(1-128) | Y      | 返回结果说明 |
-| parseResult | ParseResponse | N      | SQL解析结果  |
+| 参数名称    | 参数类型        | 是否必选 | 参数说明    |
+|:-----------|:--------------|:-------|:-----------|
+| resultCode | String(1-16)  | Y      | 返回结果码   |
+| resultDesc | String(1-128) | Y      | 返回结果说明 |
+| result     | ParseResponse | N      | SQL解析结果  |
 
 ParseResponse
 
