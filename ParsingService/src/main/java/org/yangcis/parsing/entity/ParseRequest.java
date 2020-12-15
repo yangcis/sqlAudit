@@ -1,7 +1,15 @@
 package org.yangcis.parsing.entity;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class ParseRequest {
+    @NotNull(message = "SQL string cannot be null.")
+    @Size(max = 2048, message = "Length of sql must be 0 - 2048.")
     private String sqlString;
+
+    @NotNull(message = "DB type cannot be null.")
+    @Size(max = 32, message = "Length of type must be 0 - 32.")
     private String dbType;
 
     public String getDbType() {
