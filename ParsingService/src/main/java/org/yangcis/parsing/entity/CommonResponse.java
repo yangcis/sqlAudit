@@ -7,28 +7,28 @@ import org.yangcis.parsing.common.ResponseEnum;
  * @date: 2020/12/13
  * @description: 响应消息类
  */
-public class CommonResponse<T>{
-    private final String resultCode;
-    private final String resultDesc;
+public class CommonResponse<T> {
+    private final String code;
+    private final String message;
     private T result;
 
     public CommonResponse(T result) {
-        this.resultCode = ResponseEnum.SUCCESS.getCode();
-        this.resultDesc = ResponseEnum.SUCCESS.getDesc();
+        this.code = ResponseEnum.SUCCESS.getCode();
+        this.message = ResponseEnum.SUCCESS.getMessage();
         this.result = result;
     }
 
     public CommonResponse(ResponseEnum exceptionEnum) {
-        this.resultCode = exceptionEnum.getCode();
-        this.resultDesc = exceptionEnum.getDesc();
+        this.code = exceptionEnum.getCode();
+        this.message = exceptionEnum.getMessage();
     }
 
-    public String getResultCode() {
-        return resultCode;
+    public String getCode() {
+        return code;
     }
 
-    public String getResultDesc() {
-        return resultDesc;
+    public String getMessage() {
+        return message;
     }
 
     public T getResult() {

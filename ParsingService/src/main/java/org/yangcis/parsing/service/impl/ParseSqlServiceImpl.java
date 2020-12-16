@@ -9,6 +9,7 @@ import org.yangcis.parsing.aspect.LogPrintAnnotation;
 import org.yangcis.parsing.entity.CommonResponse;
 import org.yangcis.parsing.entity.ParseRequest;
 import org.yangcis.parsing.entity.ParseResponse;
+import org.yangcis.parsing.exception.ParsingException;
 import org.yangcis.parsing.service.ParseSqlService;
 
 import java.util.List;
@@ -27,7 +28,7 @@ public class ParseSqlServiceImpl implements ParseSqlService {
             stmtList = SQLUtils.parseStatements(sql, dbType);
         } catch (ParserException parseException) {
             System.out.println("Wrong format sql string");
-            future.completeExceptionally(new ParserException());
+            future.completeExceptionally(new ParsingException());
             return;
         }
         ParseResponse parseResponse = new ParseResponse();

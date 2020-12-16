@@ -7,22 +7,22 @@ package org.yangcis.parsing.common;
  */
 public enum ResponseEnum {
     SUCCESS("0", "Success."),
-    PARSINGFAILED("1001", "Failed to parse SQL string."),
-    ;
+    PARSING_FAILED("1001", "Failed to parse SQL string."),
+    PARAMETER_ERROR("1002", "Parameter's format is illegal.");
 
     private final String code;
-    private final String desc;
+    private final String message;
 
-    ResponseEnum(String code, String desc) {
+    ResponseEnum(String code, String message) {
         this.code = code;
-        this.desc = desc;
+        this.message = message;
     }
 
     public String getCode() {
         return code;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getMessage() {
+        return message;
     }
 }
